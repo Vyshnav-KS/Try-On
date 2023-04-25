@@ -2,16 +2,19 @@ import React from "react";
 import Jacket from "../assets/images/jacket.jpeg";
 import "./SingleProduct.css";
 import Header from "../components/Header";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SingleProduct = () => {
+  const nav = useNavigate();
   return (
     <div className="sproduct-root">
       <div className="sproduct-container">
         <div className="sproduct-image-container">
           <Header />
           <img src={Jacket} alt="Jacket" className="sproduct-image" />
-          <div className="sproduct-tryon-option">Try On</div>
+          <div className="sproduct-tryon-option" onClick={() => nav("/app")}>
+            Try On
+          </div>
         </div>
 
         <div className="sproduct-details">
@@ -43,7 +46,7 @@ const SingleProduct = () => {
               a size S Material &
               <br /> Care Material: Polyester
               <br />
-               Dry-clean
+              Dry-clean
             </div>
           </div>
         </div>
