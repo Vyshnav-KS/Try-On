@@ -1,0 +1,132 @@
+.sproduct-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sproduct-image-container{
+    position: relative;
+}
+
+.sproduct-tryon-option{
+    position: absolute;
+    bottom: 20px;
+    right: 13px;
+    background-color: white;
+    width: 80px;
+    height: 30px;
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    /* border: 1px solid #004766; */
+}
+
+.sproduct-image{
+    width: 100vw;
+}
+
+.sproduct-details{
+    display: flex;
+    flex-direction: column;
+}
+.sproduct-title{
+    font-size: 20px;
+    margin: 10px 28px 2px 28px;
+}
+
+.sproduct-price{
+    font-size: 20px;
+    margin: 0px 28px;
+    color: #004766;
+}
+
+.sproduct-price-tax{
+    font-size: 12px;
+    color: grey;
+    margin-left: 15px;
+}
+
+.sproduct-size-sec{
+    margin: 25px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+.sproduct-size-header{
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 10px;   
+}
+
+.sproduct-size-box-row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.sproduct-size-box{
+    width: 50px;
+    height: 32px;
+    border: 1px solid black;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sproduct-size-box:hover{
+    background-color: #004766;
+    color: white;
+}
+.sproduct-desc-sec{
+    margin: 20px;
+    font-size: 13px;
+    text-align: justify;
+    margin-bottom: 100px;
+    color: #686868;
+}
+.sproduct-desc-title{
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.sproduct-footer{
+    display: flex;
+    background-color: white;
+    border-top: 1px solid #C1C1C1;
+    justify-content: space-between;
+    align-items: center;
+    height: 55px;
+    width: 100vw;
+    bottom: 0;
+    position: fixed;
+    column-gap: 8px;
+    font-size: 12px;
+}
+
+.sproduct-footer-cart-button{
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    color: #004766;
+    border: 1px solid #004766;
+    border-radius: 5px;
+    margin-left: 25px;
+}
+
+.sproduct-footer-buy-button{
+    width: 100%;
+    height: 42px;
+    background-color: #004766;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-right: 25px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

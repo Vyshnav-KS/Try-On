@@ -1,0 +1,32 @@
+.order-root{
+    margin: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    row-gap: 15px;
+}
+
+.order-title{
+    font-weight: 600;
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.order-verified-icon{
+    margin: 30px;
+}
+
+.order-address{
+    display: flex;
+    justify-content: space-between;
+    column-gap: 30px;
+}
+
+.order-continue-shopping{
+    color: rgb(0, 117, 153);
+    font-size: 18px;
+    margin-top: 25px;
+    text-decoration: none;
+}

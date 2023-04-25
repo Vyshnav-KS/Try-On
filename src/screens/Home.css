@@ -1,0 +1,63 @@
+.home-root{
+    display: flex;
+    flex-direction: column;
+}
+
+.home-container{
+}
+
+.home-category-header{
+    display: flex;
+    margin: 20px 48px;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+.home-category-imagesec{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    color: #004766;
+}
+.home-category-image{
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+}
+.home-main-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 44px;
+}
+.home-main-image-sales{
+    width: 327px;
+    height: 242px;
+    border-radius: 10px;
+}
+
+.home-trending-section{
+    margin: 22px;
+}
+
+.home-trending-images{
+    display: flex;
+    margin-top: 15px;
+    column-gap: 15px;
+}
+
+.home-trending-image{
+    width: 170px;
+    height: 230px;
+    border-radius: 10px;
+}
+
+.home-trending-card-details{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+.home-trending-card-price{
+    color: blue;
+}

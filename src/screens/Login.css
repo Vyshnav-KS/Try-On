@@ -1,0 +1,38 @@
+.login-root{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-text{
+    margin-top: 100px;
+    font-size: 28px;
+    color: #004766;
+    margin-bottom: 30px;
+}
+
+.login-input{
+    width: 290px;
+    height: 40px;
+    background-color: rgb(228, 241, 252);
+    border: none;
+    border-radius: 10px;
+    color: black;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.login-button{
+    width: 290px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: #004766;
+    color: white;
+}
+
+.login-bottom{
+    font-size: 10px;
+    margin-top: 100px;
+}

@@ -1,0 +1,10 @@
+.header-root{
+    display: flex;
+    margin: 15px 28px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0);
+}
+.header-cart{
+    margin-left: 20px;
+}
