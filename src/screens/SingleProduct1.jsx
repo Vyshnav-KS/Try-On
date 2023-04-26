@@ -6,13 +6,22 @@ import { Link, useNavigate } from "react-router-dom";
 
 const SingleProduct = () => {
   const nav = useNavigate();
+  const setSize = (size) => {
+    localStorage.setItem("size", size);
+  };
   return (
     <div className="sproduct-root">
       <div className="sproduct-container">
         <div className="sproduct-image-container">
           <Header />
           <img src={Jacket} alt="Jacket" className="sproduct-image" />
-          <div className="sproduct-tryon-option" onClick={() => nav("/app")}>
+          <div
+            className="sproduct-tryon-option"
+            onClick={() => {
+              localStorage.setItem("model", "jack_new/jack");
+              nav("/app");
+            }}
+          >
             Try On
           </div>
         </div>
@@ -29,11 +38,21 @@ const SingleProduct = () => {
               <div>SELECT SIZE</div>
             </div>
             <div className="sproduct-size-box-row">
-              <div className="sproduct-size-box">XS</div>
-              <div className="sproduct-size-box">S</div>
-              <div className="sproduct-size-box">M</div>
-              <div className="sproduct-size-box">L</div>
-              <div className="sproduct-size-box">XL</div>
+              <div className="sproduct-size-box" onClick={() => setSize("XS")}>
+                XS
+              </div>
+              <div className="sproduct-size-box" onClick={() => setSize("S")}>
+                S
+              </div>
+              <div className="sproduct-size-box" onClick={() => setSize("M")}>
+                M
+              </div>
+              <div className="sproduct-size-box" onClick={() => setSize("L")}>
+                L
+              </div>
+              <div className="sproduct-size-box" onClick={() => setSize("XL")}>
+                XL
+              </div>
             </div>
           </div>
 

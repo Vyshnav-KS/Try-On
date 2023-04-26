@@ -2,9 +2,10 @@ import { useEffect, useRef } from "react";
 import { setupCameraStream } from "../scripts/Camera";
 import { DisplayVideo } from "../scripts/videoPlayer";
 import React from "react";
+import icon from "../assets/camera-icon.png";
 
 let [width, height] = [0, 0];
-
+let gl: WebGL2RenderingContext | null = null;
 export const getScreenDim = () => [width, height];
 
 const VideoViewer = () => {
@@ -22,7 +23,9 @@ const VideoViewer = () => {
     canvasRef.current.width = width;
     canvasRef.current.height = height;
 
-    const gl = canvasRef.current.getContext("webgl2");
+    gl = canvasRef.current.getContext("webgl2", {
+      preserveDrawingBuffer: true,
+    });
     if (gl == null) throw "Failed to get webgl2 context";
     const mdlPath = localStorage.getItem("model") || "jack_new/jack";
     await DisplayVideo(gl, videoEl, animationIdRef, mdlPath);
@@ -34,15 +37,57 @@ const VideoViewer = () => {
     });
 
     return () => {
-      console.log("cancelAnimationFrame::", animationIdRef.current);
-      cancelAnimationFrame(animationIdRef.current);
+      for (
+        let i = animationIdRef.current;
+        i < animationIdRef.current + 30;
+        i++
+      ) {
+        console.log("cancelAnimationFrame::", i);
+        window.cancelAnimationFrame(i);
+      }
+      animationIdRef.current = -999;
     };
   }, []);
+
+  const saveSS = () => {
+    if (canvasRef.current == null) return;
+
+    if (gl == null) return;
+    const canvas = document.createElement("canvas");
+    canvas.width = gl.canvas.width;
+    canvas.height = gl.canvas.height;
+
+    // Get the canvas context and draw the WebGL2 context onto the canvas
+    const context = canvas.getContext("2d");
+    context?.drawImage(canvasRef.current, 0, 0);
+
+    // Convert the canvas to a PNG data URL
+    const dataURL = canvas.toDataURL("image/png");
+
+    // Create a link element to download the PNG file
+    const downloadLink = document.createElement("a");
+    downloadLink.href = dataURL;
+    downloadLink.download = "screenshot.png";
+
+    // Click the link to start the download
+    downloadLink.click();
+  };
 
   return (
     <div>
       <video autoPlay ref={videoRef} style={{ width: 0, height: 0 }} />
       <canvas ref={canvasRef} style={{ width: "100vw", height: "100vh" }} />
+      <div
+        style={{
+          position: "absolute",
+          top: "80vh",
+          width: "max-content",
+          left: "calc(50% - 38px)",
+        }}
+        onClick={saveSS}
+      >
+        <img src={icon} alt="asda" />
+      </div>
       <div>
         <input type="number" id="ypos" placeholder="ypos" step={0.05} />
         <input type="number" id="xpos" placeholder="xpos" step={0.05} />

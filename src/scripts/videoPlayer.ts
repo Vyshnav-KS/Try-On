@@ -123,6 +123,17 @@ export const DisplayVideo = async (
 
   InitParamController(config);
 
+  const dressConfig = {
+    XL: 0,
+    L: 1,
+    M: 1.5,
+    S: 2,
+    XS: 2.5,
+  };
+  const selectedSize = localStorage.getItem("size");
+  const dressSize = selectedSize ? dressConfig[selectedSize] : 0;
+  console.log(dressSize);
+
   const draw = async (): Promise<void> => {
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
     updateTextureFromMedia(gl, texture, video);
@@ -159,13 +170,15 @@ export const DisplayVideo = async (
         cf = applyBoneRotations(robot, pose.keypoints3D, pose.keypoints);
         cf = Math.cos(1.1 * cf);
       }
-
       // const scale = Math.abs((width * 14.772) / cf);
-      const scale = Math.abs((width * 14.772) / cf) / (1280 / SCREEN_WIDTH);
+      const scale =
+        Math.abs((width * 14.772) / cf) / (1280 / SCREEN_WIDTH) - dressSize;
       robot.setScale(scale, scale, scale);
     }
 
-    animationIdRef.current = requestAnimationFrame(draw);
+    if (animationIdRef.current != -999)
+      animationIdRef.current = requestAnimationFrame(draw);
+    console.log(animationIdRef.current);
   };
 
   draw().catch((e) => {

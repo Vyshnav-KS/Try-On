@@ -2,16 +2,28 @@ import React from "react";
 import Frok from "../assets/images/Frok.png";
 import "./SingleProduct.css";
 import Header from "../components/Header";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SingleProduct = () => {
+  const nav = useNavigate();
+  const setSize = (size) => {
+    localStorage.setItem("size", size);
+  };
   return (
     <div className="sproduct-root">
       <div className="sproduct-container">
         <div className="sproduct-image-container">
           <Header />
           <img src={Frok} alt="Jacket" className="sproduct-image" />
-          <div className="sproduct-tryon-option">Try On</div>
+          <div
+            className="sproduct-tryon-option"
+            onClick={() => {
+              localStorage.setItem("model", "ldress/ldress");
+              nav("/app");
+            }}
+          >
+            Try On
+          </div>
         </div>
 
         <div className="sproduct-details">
@@ -26,11 +38,21 @@ const SingleProduct = () => {
               <div>SELECT SIZE</div>
             </div>
             <div className="sproduct-size-box-row">
-              <div className="sproduct-size-box">XS</div>
-              <div className="sproduct-size-box">S</div>
-              <div className="sproduct-size-box">M</div>
-              <div className="sproduct-size-box">L</div>
-              <div className="sproduct-size-box">XL</div>
+              <div className="sproduct-size-box" onClick={() => setSize("XS")}>
+                XS
+              </div>
+              <div className="sproduct-size-box" onClick={() => setSize("S")}>
+                S
+              </div>
+              <div className="sproduct-size-box" onClick={() => setSize("M")}>
+                M
+              </div>
+              <div className="sproduct-size-box" onClick={() => setSize("L")}>
+                L
+              </div>
+              <div className="sproduct-size-box" onClick={() => setSize("XL")}>
+                XL
+              </div>
             </div>
           </div>
 
