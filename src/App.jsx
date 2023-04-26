@@ -11,6 +11,7 @@ import Address from "./screens/Address";
 import Payment from "./screens/Payment";
 import Order from "./screens/Order";
 import VideoViewer from "./components/VideoViewer";
+import ReloadPrompt from "./ReloadPrompt";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+      <ReloadPrompt />
     </div>
   );
 }
